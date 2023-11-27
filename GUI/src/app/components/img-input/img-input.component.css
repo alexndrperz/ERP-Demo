@@ -1,0 +1,23 @@
+#media-uploader1 .dz-message {
+	font-size: 15px;
+	display: table-cell;
+	vertical-align: middle;
+	color: #a0a5aa;
+}
+#media-uploader1 img {
+	border-radius: 20px;
+}
+
+#media-uploader1 {
+    cursor: pointer;
+	min-height: 150px;
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	background: white;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 18px;
+    align-items: center;
+    width: 317px;
+    height: 189px;
+}

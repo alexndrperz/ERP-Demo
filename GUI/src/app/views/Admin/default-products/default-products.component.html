@@ -1,1 +1,68 @@
-<p>default-products works!</p>
+<header>
+    <h1>
+            Productos
+    </h1>
+    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditCreateProducts">
+        <span class="material-symbols-outlined">
+            add_circle
+            </span>
+    </button>
+</header>
+<hr>
+
+<main>
+    <section class="products-section">
+        <div class="card" style="width: 22rem;" *ngFor="let product of productsData">
+            <div class="card-img">
+                <img src= "https://cdn2.thecatapi.com/images/2bh.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <div class="buttons">
+                  <h5 class="card-title"><b>{{product.nombre}}</b></h5>
+                  <ul>
+                    <li><b>Precio:</b> ${{product.precio}}.00</li>
+                    <li><b>Ganancias en periodo:</b> ${{product.ganancias}}.00</li>
+                  </ul>
+              </div>  
+              <div class="card-buttons">
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEditCreateProducts" title="Editar">
+                    <span class="material-symbols-outlined" >
+                        edit
+                    </span>
+                </button>
+                <button class="btn btn-outline-primary" title="Obtener Informacion">
+                    <span class="material-symbols-outlined">
+                        info
+                    </span>
+                </button>
+              </div>
+            </div>
+          </div>
+    </section>
+</main>
+
+
+<b-modal  [modalId]="'modalEditCreateProducts'" [modalTitle]="'Guardar Producto'" 
+            [modalWidth]="'685px'">
+    <section class="contenido-modal">
+        <section class="img-input-cont">
+            <img-input></img-input>
+        </section>
+        <section class="form-inputs">
+            <div class="input-group mb-2">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control"  placeholder="">
+            </div>
+            <div class="input-group mb-2">
+                <label class="form-label">Precio</label>
+                <input type="number" class="form-control"  placeholder="">
+            </div>
+        </section>
+    </section>
+
+    <section class="botones-modal">
+        <button class="btn btn-outline-primary">
+            Guardar
+        </button>
+    </section>
+</b-modal>

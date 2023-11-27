@@ -1,0 +1,81 @@
+h1 {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 47px;
+    margin: 0px 
+}
+
+hr {
+    margin-top: 14px;
+    border: 1px solid;
+}
+
+.btn {
+    padding: 5px 10px;
+    height: 47px;
+}
+
+span {
+    font-size: 35px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.products-section {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+
+.card-img {
+    width: 350px;
+    height: 184px;
+}
+
+.card-img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.card-buttons .btn {
+    font-size: 20px;
+}
+
+
+/*Modal*/
+.contenido-modal {
+    display: flex;
+    gap: 24px;
+    padding-top: 0px !important;
+    padding: 6px;
+}
+
+.form-label {
+    margin-top: 6px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.form-inputs {
+    width: 100%;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 2px;
+}
+
