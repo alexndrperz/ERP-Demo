@@ -1,0 +1,48 @@
+.input-group {
+    width: 100%;
+}
+
+
+.form-control {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.form-label {
+    margin-top: 6px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+
+.search-wrapper {
+    width: 100%;
+}
+
+
+
+.auto-complete {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    list-style:  none;
+    padding: 0px ;
+    margin: 0px;
+}
+
+.auto-complete li {
+    padding: 4px 14px;
+    font-size: 17px;
+    border: solid #e8e8e8 0.5px;
+}
+
+
+.auto-complete li:hover {
+    background-color: rgba(0, 0, 0, 0.215);
+}
+
+.selected {
+    background-color: #00800012;
+}

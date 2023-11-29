@@ -8,6 +8,10 @@ import { DefaultProductsComponent } from './views/Admin/default-products/default
 import { MainAdminComponent } from './views/Admin/main-admin/main-admin.component';
 import { NormalModalComponent } from './components/normal-modal/normal-modal.component';
 import { ImgInputComponent } from './components/img-input/img-input.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from '@angular/material/autocomplete'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,16 @@ import { ImgInputComponent } from './components/img-input/img-input.component';
     DefaultProductsComponent,
     MainAdminComponent,
     NormalModalComponent,
-    ImgInputComponent
+    ImgInputComponent,
+    SearchInputComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

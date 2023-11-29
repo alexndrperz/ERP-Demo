@@ -56,11 +56,18 @@ header {
 
 
 /*Modal*/
+.img-input-cont {
+    display: flex;
+    align-items: center;
+}
+
+
 .contenido-modal {
     display: flex;
     gap: 24px;
     padding-top: 0px !important;
     padding: 6px;
+    height: 100%;
 }
 
 .form-label {
@@ -72,6 +79,12 @@ header {
 
 .form-inputs {
     width: 100%;
+    overflow: auto;
+    padding: 2px;
+}
+
+.form-inputs::-webkit-scrollbar {
+    display: none;
 }
 
 .form-control {

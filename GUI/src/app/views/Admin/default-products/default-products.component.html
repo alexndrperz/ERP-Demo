@@ -22,6 +22,7 @@
                   <ul>
                     <li><b>Precio:</b> ${{product.precio}}.00</li>
                     <li><b>Ganancias en periodo:</b> ${{product.ganancias}}.00</li>
+                    <li><b>Cantidad disponible:</b> {{product.available}}</li>
                   </ul>
               </div>  
               <div class="card-buttons">
@@ -43,12 +44,12 @@
 
 
 <b-modal  [modalId]="'modalEditCreateProducts'" [modalTitle]="'Guardar Producto'" 
-            [modalWidth]="'685px'">
+            [modalWidth]="'685px'" [modalHeight]="'306px'">
     <section class="contenido-modal">
-        <section class="img-input-cont">
+        <section class=" img-input-cont">
             <img-input></img-input>
         </section>
-        <section class="form-inputs">
+        <section class="form-inputs ">
             <div class="input-group mb-2">
                 <label class="form-label">Nombre</label>
                 <input type="text" class="form-control"  placeholder="">
@@ -56,6 +57,9 @@
             <div class="input-group mb-2">
                 <label class="form-label">Precio</label>
                 <input type="number" class="form-control"  placeholder="">
+            </div>
+            <div class="input-group mb-2">
+                <search-input ngClass="input-group"></search-input>
             </div>
         </section>
     </section>

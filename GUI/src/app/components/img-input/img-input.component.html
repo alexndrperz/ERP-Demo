@@ -7,9 +7,9 @@
         <img #imageElement *ngIf="selectedImageSrc || formData.image"
             [src]="showImage(formData.image)"
             style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="dz-message" style="color:'.get_option('taxCrt-setting-font').'; cursor: pointer;"
+        <div class="dz-message"
             *ngIf="!selectedImageSrc && !formData.image">
-            <span class="mx-2"></span>Arrastre o de click para subir una imagen
+            Arrastre o de click para subir una imagen
         </div>
     </div>
 </div>

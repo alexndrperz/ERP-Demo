@@ -3,6 +3,10 @@
 	display: table-cell;
 	vertical-align: middle;
 	color: #a0a5aa;
+    cursor: pointer;
+    margin: 15px;
+    cursor: pointer;
+    text-align: center;
 }
 #media-uploader1 img {
 	border-radius: 20px;

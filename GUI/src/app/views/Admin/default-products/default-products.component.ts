@@ -8,23 +8,30 @@ import { NormalModalComponent } from 'src/app/components/normal-modal/normal-mod
 })
 export class DefaultProductsComponent {
   @ViewChild(NormalModalComponent) modalIns:NormalModalComponent = new NormalModalComponent()
-
+  
 
   productsData:any[] = [
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:20000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
-    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:20000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+    {id:2, nombre:"Martinis", modelo:'sdad',precio: 500, ganancias:2000, available:3},
+  ]
+
+
+  proveedores:any[] = [
+    {id:1, nombre:'jumbo'},
+    {id:1, nombre:'Sirena'},
+    {id:1, nombre:'Bravo'},
   ]
 
 
