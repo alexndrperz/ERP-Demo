@@ -1,6 +1,6 @@
 <header>
     <h1>
-            Productos
+            Productos por defecto
     </h1>
     <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditCreateProducts">
         <span class="material-symbols-outlined">
@@ -14,26 +14,26 @@
     <section class="products-section">
         <div class="card" style="width: 22rem;" *ngFor="let product of productsData">
             <div class="card-img">
-                <img src= "https://cdn2.thecatapi.com/images/2bh.jpg" class="card-img-top" alt="...">
+                <img [src]="getProductImage(product.imgPath)" class="card-img-top" alt="...">
             </div>
             <div class="card-body">
               <div class="buttons">
-                  <h5 class="card-title"><b>{{product.nombre}}</b></h5>
+                  <h5 class="card-title"><b>{{product.name}}</b></h5>
                   <ul>
-                    <li><b>Precio:</b> ${{product.precio}}.00</li>
+                    <li><b>Precio:</b> ${{product.price}}.00</li>
                     <li><b>Ganancias en periodo:</b> ${{product.ganancias}}.00</li>
-                    <li><b>Cantidad disponible:</b> {{product.available}}</li>
+                    <li><b>Cantidad disponible:</b> {{product.quantity_available}}</li>
                   </ul>
               </div>  
               <div class="card-buttons">
-                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalEditCreateProducts" title="Editar">
-                    <span class="material-symbols-outlined" >
-                        edit
-                    </span>
-                </button>
                 <button class="btn btn-outline-primary" title="Obtener Informacion">
                     <span class="material-symbols-outlined">
                         info
+                    </span>
+                </button>
+                <button class="btn btn-outline-danger"  title="Eliminar" (click)="deshabilitateProduct(product.id)">
+                    <span class="material-symbols-outlined" >
+                        delete
                     </span>
                 </button>
               </div>
@@ -43,29 +43,28 @@
 </main>
 
 
+
+
 <b-modal  [modalId]="'modalEditCreateProducts'" [modalTitle]="'Guardar Producto'" 
             [modalWidth]="'685px'" [modalHeight]="'306px'">
     <section class="contenido-modal">
         <section class=" img-input-cont">
-            <img-input></img-input>
+            <img-input [formData]="formData"></img-input>
         </section>
         <section class="form-inputs ">
             <div class="input-group mb-2">
                 <label class="form-label">Nombre</label>
-                <input type="text" class="form-control"  placeholder="">
+                <input type="text" class="form-control" [(ngModel)]="formData.name" placeholder="">
             </div>
             <div class="input-group mb-2">
-                <label class="form-label">Precio</label>
-                <input type="number" class="form-control"  placeholder="">
-            </div>
-            <div class="input-group mb-2">
-                <search-input ngClass="input-group"></search-input>
+                <label class="form-label" >Precio de venta</label>
+                <input type="number" class="form-control" [(ngModel)]="formData.price"  placeholder="">
             </div>
         </section>
     </section>
 
     <section class="botones-modal">
-        <button class="btn btn-outline-primary">
+        <button class="btn btn-outline-primary" data-bs-dismiss="modal" (click)="saveChanges()">
             Guardar
         </button>
     </section>

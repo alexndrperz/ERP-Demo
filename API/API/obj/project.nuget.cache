@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eslqgKBlSYZQZ6tVs+T+wRFkSsDuZt6KgcuTpXNC2DSgydr0Zwzwh6xasQMM4BOf2C1pSyFVzGGhUic5FzBpNQ==",
+  "dgSpecHash": "kfi5WPX/0cH3W6bbEKD3P7U2w8vNFyaTcq/iXED7SVJ3tw9MnnPghDT4svhpBwMcHWJqMovc9GUfwuyUpycUYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alan8\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\alan8\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alan8\\OneDrive\\Escritorio\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj": {}
+    "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alan8\\OneDrive\\Escritorio\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj": {
+    "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
+        "projectPath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
         "packagesPath": "C:\\Users\\alan8\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\obj\\",
+        "outputPath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alan8\\AppData\\Roaming\\NuGet\\NuGet.Config",

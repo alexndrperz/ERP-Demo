@@ -1,0 +1,46 @@
+<header class="encabezado">
+    <h1>Entrada de mercancia</h1>
+    <button [routerLink]="['form-add-entry']" class="btn btn-outline-primary" title="Añadir Entrada">
+        <span class="material-symbols-outlined">
+            add_circle
+        </span>
+    </button>
+</header>
+<hr>    
+<m-paginator></m-paginator>
+<table class="table table-striped">
+    <thead>
+        <th>No. Transaccion</th>
+        <th>Fecha</th>
+        <th>Total Pagado</th>
+        <th>Empresa Proveedora</th>
+        <th>RNC</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>203023</td>
+            <td>1/12/2023</td>
+            <td>$2355.00</td>
+            <td>Jumbo</td>
+            <td>1213535253</td>
+            <td>
+                <button class="btn btn-outline-primary table-btn" title="Ver info de factura" [routerLink]="['invoice/1']" >
+                    <span class="material-symbols-outlined"> info</span>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>203023</td>
+            <td>1/12/2023</td>
+            <td>$2355.00</td>
+            <td>Jumbo</td>
+            <td>1213535253</td>
+            <td>
+                <button class="btn btn-outline-primary table-btn" title="Ver info de factura" [routerLink]="['invoice/1']" >
+                    <span class="material-symbols-outlined"> info</span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
