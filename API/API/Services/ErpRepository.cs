@@ -37,6 +37,34 @@ namespace API.Services
 
         }
 
+        public async Task<Invoices> createInvoice(InvoiceCreateDTO invoice)
+        {
+            if(invoice.provider_id == 0 && !string.IsNullOrEmpty(invoice.rnc))
+            {
+                Providers provider = new Providers() { 
+                    Name = invoice.name,    
+                    rnc = invoice.rnc
+                };
+                await _dbContext.Providers.AddAsync(provider);
+                await _dbContext.SaveChangesAsync();    
+                invoice.provider_id = provider.Id;  
+            }
+            Invoices ent_invoice = _mapper.Map<Invoices>(invoice);
+            await _dbContext.Invoices.AddAsync(ent_invoice);
+            await _dbContext.SaveChangesAsync();
+            foreach(SubInvoiceCreateDTO subInvoice in invoice.subInvoices)
+            {
+                SubInvoices ent_subInvoice = _mapper.Map<SubInvoices>(subInvoice);
+                ent_subInvoice.invoice_id = ent_invoice.Id;
+                await _dbContext.SubInvoices.AddAsync(ent_subInvoice);
+            }
+            await _dbContext.SaveChangesAsync();
+            return ent_invoice;
+        }
+
+
+
+
         public async Task<List<ProductsRetrieveDTO>> GetProductsDefault()
         {
             List<ProductsDefault> entities = await _dbContext.ProductsDefaults
