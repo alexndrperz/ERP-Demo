@@ -1,1 +1,37 @@
-<p>details-entry works!</p>
+<h1>Detalles de Transaccion</h1>
+<hr>
+<div class="data" *ngIf="loaded">
+    <h3>General</h3>
+    <ul>
+        <li><b>Fecha: </b>{{invoice.created_At | date:"dd/MM/yyyy hh:mm:ss a"}}</li>
+        <li><b>Subtotal: </b>{{invoice.subtotal}}</li>
+        <li><b>Total: </b>{{invoice.total}}</li>
+        <li><b>ITBIS: </b>{{invoice.subtotal - invoice.total }}</li>
+    </ul>
+
+    <h3>Mercancia Añadida</h3>
+    <table class="table table-bordered merc-table">
+        <tbody>
+            <tr>
+                <td>Cantidad</td>
+                <td>Imagen</td>
+                <td>Producto</td>
+                <td>Precio por unidad</td>
+                <td>Total</td>
+                <td>Subtotal</td>
+            </tr>
+            <tr *ngFor="let subInv of invoice.subInvoices">
+                <td>{{subInv.quantity}}</td>
+                <td>
+                    <div class="img-container">
+                        <img [src]="getProductImage(subInv.product.imgPath)" alt="">
+                    </div>
+                </td>
+                <td>{{subInv.product.name}}</td>
+                <td>{{subInv.price_unit}}</td>
+                <td>{{subInv.total}}</td>
+                <td>{{subInv.subtotal}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

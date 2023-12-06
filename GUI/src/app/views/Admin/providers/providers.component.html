@@ -1,0 +1,18 @@
+<h1>
+    Proveedores Registrados
+</h1>
+<hr>
+<table class="table table-hover">
+    <thead>
+        <th>RNC</th>
+        <th>Nombre</th>
+        <th>Gastos en periodo</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let provider of providers">
+            <td> {{provider.rnc}}</td>
+            <td> {{provider.name}}</td>
+            <td> 0  </td>
+        </tr>
+    </tbody>
+</table>

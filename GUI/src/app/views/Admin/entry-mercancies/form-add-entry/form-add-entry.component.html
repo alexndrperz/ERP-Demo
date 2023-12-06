@@ -1,1 +1,85 @@
-<p>form-add-entry works!</p>
+<h1>Añadir entrada de mercancia</h1>
+<hr>
+
+<h4>Empresa Proveedora</h4>
+
+<section class="providers-input-section"  *ngIf="!searchActive">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">RNC</span>
+        <input type="text" class="form-control" [(ngModel)]="invoice.rnc"  aria-label="Username"
+            aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Nombre</span>
+        <input type="text" class="form-control"  [(ngModel)]="invoice.name" aria-label="Username"
+            aria-describedby="basic-addon1">
+    </div>
+</section>
+
+<section class="search-container mb-3" *ngIf="searchActive">
+    <search-input (provider_selected)="asignProvider($event)"></search-input>
+</section>
+<div class="form-check ">
+    <input class="form-check-input" type="checkbox" value="" (change)="clearProviderInp()"[(ngModel)]="searchActive" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1" >
+      Existe
+    </label>
+</div>
+
+<h4 class="mt-3 mb-3">Registrar Mercancia</h4>
+<div class="products-selector-box">
+    <div class="inputs-selector-container">
+        <table class="table table-bordered table-inputs" >
+            <tbody>
+                <tr>
+                    <td>Cantidad</td>
+                    <td>Img</td>
+                    <td>Producto</td>
+                    <td>Precio per unit</td>
+                    <td>Subtotal</td>
+                    <td>Total</td>
+                </tr>
+                <tr>
+                    <td><input type="number" class="form-control" id="quantity-td" (input)="calculateTotal()" [(ngModel)]="formDataPerInp.quantity"></td>
+                    <td>
+                        <div class="img-container">
+                            <img *ngIf="imgSelected" [src]="imgInpPath" alt="">
+                        </div>
+                    </td>
+                    <td id="product-input"><search-products (routeImg)="asignProduct($event)" (clearSearcher)="clearInput()"></search-products></td>
+                    <td id="price-input"><span style="font-size: 23px;">$</span><input (input)="calculateTotal()" [(ngModel)]="formDataPerInp.price_unit"  id="setInput" type="number" class="form-control" ></td>
+                    <td class="totals"><span>${{formDataPerInp.subtotal}}</span></td>
+                    <td class="totals"><span>${{formDataPerInp.total}}</span></td>
+                    <td><button class="btn btn-outline-primary" (click)="addSubInvoice()"><span class="material-symbols-outlined" style="font-size: 30px;">add_circle</span></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="subinvoicesAlm">
+        <table class="table table-hover table-subInvoices">
+            <tbody>
+                <tr *ngFor="let subInv of subInvoices">
+                    <td>{{subInv.quantity}}</td>
+                    <td>
+                        <div class="img-container">
+                            <img [src]="getProductImage(subInv.imgPath)" alt="">
+                        </div>
+                    </td>
+                    <td>{{subInv.name}}</td>
+                    <td>${{subInv.price_unit}}</td>
+                    <td>${{subInv.subtotal}}</td>
+                    <td>${{subInv.total}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="totals-total">
+        <span><b> ITBIS:  </b>${{invoice.subtotal - invoice.total}}</span>
+        <span><b>SubTotal: </b>${{invoice.subtotal}}</span>
+        <span><b>Total: </b>${{invoice.total}}</span>
+    </div>
+</div>
+
+<button class="btn btn-outline-primary mt-3" (click)="createInvoice()">Crear Factura</button>

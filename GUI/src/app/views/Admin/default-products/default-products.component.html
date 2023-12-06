@@ -20,13 +20,13 @@
               <div class="buttons">
                   <h5 class="card-title"><b>{{product.name}}</b></h5>
                   <ul>
-                    <li><b>Precio:</b> ${{product.price}}.00</li>
-                    <li><b>Ganancias en periodo:</b> ${{product.ganancias}}.00</li>
-                    <li><b>Cantidad disponible:</b> {{product.quantity_available}}</li>
+                    <li><b>Porcentaje de Ganancias:</b> {{product.percentage_sell}}%</li>
+                    <li><b>Ganancias en periodo:</b> ${{product.total_gains}}</li>
+                    <li><b>Cantidad disponible:</b> {{product.quantity_availables}}</li>
                   </ul>
               </div>  
               <div class="card-buttons">
-                <button class="btn btn-outline-primary" title="Obtener Informacion">
+                <button class="btn btn-outline-primary" title="Obtener Informacion" [routerLink]="[product.id,'details']">
                     <span class="material-symbols-outlined">
                         info
                     </span>
@@ -57,7 +57,7 @@
                 <input type="text" class="form-control" [(ngModel)]="formData.name" placeholder="">
             </div>
             <div class="input-group mb-2">
-                <label class="form-label" >Precio de venta</label>
+                <label class="form-label" >Porcentaje de ganancias por venta</label>
                 <input type="number" class="form-control" [(ngModel)]="formData.price"  placeholder="">
             </div>
         </section>

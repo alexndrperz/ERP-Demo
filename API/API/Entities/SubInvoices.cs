@@ -11,8 +11,8 @@ namespace API.Entities
         [ForeignKey("product_id")]
         public ProductsDefault product { get; set; }
         public int product_id { get; set; }
+        public decimal price_unit { get; set; }   
         public int quantity { get; set; }
-        public bool hasItbis { get; set; } = false;
         public decimal subtotal { get; set; }
         public decimal total { get; set; }
     }

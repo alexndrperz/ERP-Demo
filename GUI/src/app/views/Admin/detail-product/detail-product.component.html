@@ -1,0 +1,55 @@
+<section class="header-product" *ngIf="loaded">
+    <div class="img-container">
+        <img [src]="getProductImage(product.imgPath)" alt="">
+    </div>
+    <div class="info-prod">
+        <div class="text-info-header">
+            <h2><b>Certificados</b></h2>
+            <ul>
+                <li><b>Cantidad disponible: </b>{{product.quantity_availables}}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<hr>
+<h3>Detalles</h3>
+<ul>
+    <li><b>Gasto Promedio:</b> ${{product.avg_bills}}</li>
+    <li><b>Ganancias Totales:</b> ${{product.total_gains}}</li>
+    <li><b>Porcentaje de venta: </b>{{product.percentage_sell}}%</li>
+</ul>
+<h3>Movimientos</h3>
+<table class="table table-bordered subInv-totals">
+    <tbody>
+        <tr class="header-table">
+            <td>Tipo</td>
+            <td>Fecha</td>
+            <td>Precio</td>
+            <td>Cantidad Pedida</td>
+            <td>SubTotal</td>
+            <td>Total</td>
+        </tr>
+        <tr *ngFor ="let subInv of product.subInvoices">
+            <td> 
+                <span *ngIf="subInv.invoice.isEntry" style="color:green">Entrada</span>
+                <span *ngIf="!subInv.invoice.isEntry" style="color:red">Salida</span>
+            </td>
+            <td>{{subInv.invoice.created_At | date:"dd/MM/yyyy"}}</td>
+            <td>${{subInv.price_unit}}</td>
+            <td>
+                {{subInv.quantity}}
+                <span class="material-symbols-outlined" *ngIf="subInv.invoice.isEntry" style="font-size: 20px; color:green">arrow_upward</span>
+                <span class="material-symbols-outlined" *ngIf="!subInv.invoice.isEntry" style="font-size: 20px; color:red">arrow_downward</span>
+            </td>
+            <td>${{subInv.subtotal}}</td>
+            <td>${{subInv.total}}</td>
+            <td>
+                <button class=" btn btn-outline-primary" title="Ver detalle Factura" [routerLink]="['/admin',subInv.invoice.isEntry ? 'entry-mercancies' : 'output-mercancies' ,'invoice',subInv.invoice.id]">
+                    <span class="material-symbols-outlined">
+                        info
+                    </span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

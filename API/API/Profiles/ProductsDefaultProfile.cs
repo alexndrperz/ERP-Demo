@@ -8,6 +8,7 @@ namespace API.Profiles
     {
         public ProductsDefaultProfile() {
             CreateMap<ProductsDefault, ProductsRetrieveDTO>();
+            CreateMap<ProductsDefault, ProductOutNestedDTO>();
             CreateMap<ProductCreateDTO, ProductsDefault>();
         
         }    

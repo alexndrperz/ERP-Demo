@@ -26,7 +26,13 @@ namespace API.Migrations
                     b.Property<DateTime>("created_At")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("provider_id")
+                    b.Property<bool>("fiscalComp")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("isEntry")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("provider_id")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("subtotal")
@@ -59,7 +65,7 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("price")
+                    b.Property<decimal>("percentage_sell")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("quantity_available")
@@ -95,11 +101,11 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("hasItbis")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("invoice_id")
                         .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("price_unit")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("product_id")
                         .HasColumnType("INTEGER");
@@ -126,9 +132,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Entities.Providers", "provider")
                         .WithMany()
-                        .HasForeignKey("provider_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("provider_id");
 
                     b.Navigation("provider");
                 });
@@ -136,13 +140,13 @@ namespace API.Migrations
             modelBuilder.Entity("API.Entities.SubInvoices", b =>
                 {
                     b.HasOne("API.Entities.Invoices", "invoice")
-                        .WithMany()
+                        .WithMany("subInvoices")
                         .HasForeignKey("invoice_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("API.Entities.ProductsDefault", "product")
-                        .WithMany()
+                        .WithMany("subInvoices")
                         .HasForeignKey("product_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -150,6 +154,16 @@ namespace API.Migrations
                     b.Navigation("invoice");
 
                     b.Navigation("product");
+                });
+
+            modelBuilder.Entity("API.Entities.Invoices", b =>
+                {
+                    b.Navigation("subInvoices");
+                });
+
+            modelBuilder.Entity("API.Entities.ProductsDefault", b =>
+                {
+                    b.Navigation("subInvoices");
                 });
 #pragma warning restore 612, 618
         }

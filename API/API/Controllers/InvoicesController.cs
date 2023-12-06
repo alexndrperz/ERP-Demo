@@ -9,15 +9,48 @@ namespace API.Controllers
     public class InvoicesController : Controller
     {
         private readonly IErpRepository _erpRepository;
-        public InvoicesController(IErpRepository erpRepository)         {
+        public InvoicesController(IErpRepository erpRepository)
+        {
             _erpRepository = erpRepository;
         }
 
-        [HttpPost] 
-        public async  Task<ActionResult> createBigInvoice(InvoiceCreateDTO invoice)
+        [HttpGet]
+        public async Task<ActionResult<List<Invoices>>> getInitialInvoices()
         {
-            return Ok();
+            return Ok(await _erpRepository.getInvoicess(true));
+
         }
 
+        [HttpGet("{invoice_id}")]
+        public async Task<ActionResult<InvoiceIndDTO>> getInvoice(int invoice_id)
+        {
+            var invoice = await _erpRepository.getInvoice(invoice_id);
+            if(invoice == null)
+            {
+                return NotFound();
+            }
+            return invoice;
+
+        }
+
+        [HttpPost]          
+        public async  Task<ActionResult> createBigInvoice([FromBody] InvoiceCreateDTO invoice)
+        {
+            await _erpRepository.createInvoice(invoice);
+            return Ok(new {msg = "Creado con exito"});
+        }
+
+        [HttpPost("out")]
+        public async Task<ActionResult> createBigOutInvoice([FromBody] InvoiceOutCreateDTO invoice)
+        {
+            await _erpRepository.createOutputInvoice(invoice);
+            return Ok(new { msg = "Creado con exito" });
+        }
+
+        [HttpGet("out")]
+        public async Task<ActionResult> getOutInvoices()
+        {
+            return Ok(await _erpRepository.getInvoicess(false));
+        }
     }
 }

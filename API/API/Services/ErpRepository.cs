@@ -37,6 +37,17 @@ namespace API.Services
 
         }
 
+
+        public async Task<List<Invoices>> getInvoicess(bool isOut= true)
+        {
+            List<Invoices> invoices = 
+                await  _dbContext.Invoices
+                .Where(inv => inv.isEntry == isOut)
+                .Include(inv => inv.provider).ToListAsync();
+            return invoices;
+        }
+
+
         public async Task<Invoices> createInvoice(InvoiceCreateDTO invoice)
         {
             if(invoice.provider_id == 0 && !string.IsNullOrEmpty(invoice.rnc))
@@ -50,18 +61,18 @@ namespace API.Services
                 invoice.provider_id = provider.Id;  
             }
             Invoices ent_invoice = _mapper.Map<Invoices>(invoice);
-            await _dbContext.Invoices.AddAsync(ent_invoice);
-            await _dbContext.SaveChangesAsync();
-            foreach(SubInvoiceCreateDTO subInvoice in invoice.subInvoices)
-            {
-                SubInvoices ent_subInvoice = _mapper.Map<SubInvoices>(subInvoice);
-                ent_subInvoice.invoice_id = ent_invoice.Id;
-                await _dbContext.SubInvoices.AddAsync(ent_subInvoice);
-            }
+                await _dbContext.Invoices.AddAsync(ent_invoice);
             await _dbContext.SaveChangesAsync();
             return ent_invoice;
         }
 
+        public async Task<Invoices> createOutputInvoice(InvoiceOutCreateDTO invoice)
+        {
+            Invoices entity = _mapper.Map<Invoices>(invoice);
+            await _dbContext.Invoices.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
+        }
 
 
 
@@ -69,25 +80,33 @@ namespace API.Services
         {
             List<ProductsDefault> entities = await _dbContext.ProductsDefaults
                 .Where(prod => prod.active)
+                .Include(prod => prod.subInvoices)
+                    .ThenInclude(sub => sub.invoice)
                 .ToListAsync();
             List<ProductsRetrieveDTO> dtos = _mapper.Map<List<ProductsRetrieveDTO>>(entities);
             return dtos;
         }
 
-        public async Task<ProductsDefault> getProductDefault(int productId)
+        public async Task<ProductsRetrieveDTO> getProductDefault(int productId)
         {
-            var entity = await _dbContext.ProductsDefaults.FirstOrDefaultAsync(prod => prod.Id == productId);
+            var entity = await _dbContext.ProductsDefaults
+                .Include(pr => pr.subInvoices)
+                    .ThenInclude(pr => pr.invoice)
+                .FirstOrDefaultAsync(prod => prod.Id == productId);
+
             if(entity == null)
             {
                 return null;
             }
-            return entity;
+
+            var dto = _mapper.Map<ProductsRetrieveDTO>(entity);
+            return dto;
 
         }
 
         public async Task<int> inhabilitateProduct(int productID)
         {
-            var entity = await getProductDefault(productID);
+            var entity = await _dbContext.ProductsDefaults.FirstOrDefaultAsync(prod => prod.Id == productID);
             if(entity == null)
             {
                 return 0;
@@ -106,6 +125,16 @@ namespace API.Services
             List<Providers> providers = await _dbContext.Providers.ToListAsync();
             List<ProvidersRetrieveDTO> dtos = _mapper.Map<List<ProvidersRetrieveDTO>>(providers);
             return dtos;
+        }
+
+        public async Task<InvoiceIndDTO> getInvoice(int id)
+        {
+            var invoice = await _dbContext.Invoices
+                .Include(inv => inv.provider)
+                .Include(inv => inv.subInvoices)
+                    .ThenInclude(subInv => subInv.product)
+                .FirstOrDefaultAsync(inv => inv.Id == id);
+                return _mapper.Map<InvoiceIndDTO>(invoice);
         }
     }
 }

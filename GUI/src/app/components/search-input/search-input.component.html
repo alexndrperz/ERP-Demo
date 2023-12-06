@@ -2,10 +2,9 @@
 
 
 <section class="search-wrapper">
-    <input id="search" [ngClass]="{'selected':optionSelected}" [formControl]="control" [(ngModel)]="searchData" class="form-control" (search)="clearSearch()" type="search">
+    <input id="search"  [ngClass]="{'selected':optionSelected}" [formControl]="control" [(ngModel)]="searchData"[ngClass]="{'selected':optionSelected}" [formControl]="control" [(ngModel)]="searchData" class="form-control" (search)="clearSearch()" type="search">
     <ul class="auto-complete" *ngIf="!optionSelected">
-        <li *ngFor="let provedor of filterProv | async"  (click)="selectOption(provedor)" >{{provedor.nombre}}</li>
-
+        <li *ngFor="let provedor of filterProv | async"  (click)="selectOption(provedor)" >{{provedor.name}}</li>
     </ul>
 </section>
 

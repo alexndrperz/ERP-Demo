@@ -16,7 +16,13 @@ import { EntryMercanciesComponent } from './views/Admin/entry-mercancies/entry-m
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormAddEntryComponent } from './views/Admin/entry-mercancies/form-add-entry/form-add-entry.component';
-import { DetailsEntryComponent } from './views/Admin/entry-mercancies/details-entry/details-entry.component'
+import { DetailsEntryComponent } from './views/Admin/entry-mercancies/details-entry/details-entry.component';
+import { SearchProductsComponent } from './views/Admin/entry-mercancies/form-add-entry/search-products/search-products.component';
+import { ProvidersComponent } from './views/Admin/providers/providers.component';
+import { DetailProductComponent } from './views/Admin/detail-product/detail-product.component';
+import { OutputMercanciesComponent } from './views/Admin/output-mercancies/output-mercancies.component';
+import { FormAddOutputComponent } from './views/Admin/output-mercancies/form-add-output/form-add-output.component';
+import { DetailsOutputComponent } from './views/Admin/output-mercancies/details-output/details-output.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +33,16 @@ import { DetailsEntryComponent } from './views/Admin/entry-mercancies/details-en
     NormalModalComponent,
     ImgInputComponent,
     SearchInputComponent,
+    SearchProductsComponent,
     PaginatorComponent,
     EntryMercanciesComponent,
     FormAddEntryComponent,
     DetailsEntryComponent,
+    ProvidersComponent,
+    DetailProductComponent,
+    OutputMercanciesComponent,
+    FormAddOutputComponent,
+    DetailsOutputComponent,
     
   ],
   imports: [

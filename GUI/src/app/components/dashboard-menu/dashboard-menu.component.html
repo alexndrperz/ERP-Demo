@@ -41,14 +41,23 @@
                     <li><a class="link_name" routerLink="entry-mercancies">Entrada de Mercancia</a></li>
                 </ul>
             </li>
+            <li>
+                <a routerLink="providers">
+                    <i class='bx bx-buildings'></i>
+                    <span class="link_name">Proveedores</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" routerLink="providers">Proveedores</a></li>
+                </ul>
+            </li>
 
             <li>
-                <a href="#">
+                <a [routerLink]="['output-mercancies']">
                     <i class='bx bx-history'></i>
                     <span class="link_name">Sal. Mercancia</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Salida de Mercancia</a></li>
+                    <li><a class="link_name" [routerLink]="['output-mercancies']">Salida de Mercancia</a></li>
                 </ul>
             </li>
             <li>

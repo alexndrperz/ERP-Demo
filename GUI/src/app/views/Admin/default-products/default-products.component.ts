@@ -15,7 +15,7 @@ export class DefaultProductsComponent {
   formData:any ={
     name:"",
     image:null,
-    price:0
+    percentage_sell:0
   }
 
 
