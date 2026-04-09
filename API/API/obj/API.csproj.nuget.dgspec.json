@@ -1,28 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj": {}
+    "C:\\Users\\DEV01\\Desktop\\Materiales\\Alan\\proc\\ERP-Demo\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj": {
+    "C:\\Users\\DEV01\\Desktop\\Materiales\\Alan\\proc\\ERP-Demo\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\DEV01\\Desktop\\Materiales\\Alan\\proc\\ERP-Demo\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\alan8\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alan8\\OneDrive\\Escritorio\\Revision\\Angular -- ASP.NET\\ERP-Demo\\API\\API\\obj\\",
+        "projectPath": "C:\\Users\\DEV01\\Desktop\\Materiales\\Alan\\proc\\ERP-Demo\\API\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\DEV01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DEV01\\Desktop\\Materiales\\Alan\\proc\\ERP-Demo\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\alan8\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\DEV01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/ApplicaRD/index.json": {},
+          "https://nuget.pkg.github.com/SSS-EDI837-Generator/index.json": {},
+          "https://nuget.pkg.github.com/TSA-EDI837-Generator/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -34,7 +44,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -86,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
