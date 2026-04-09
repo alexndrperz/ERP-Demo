@@ -1,0 +1,14 @@
+
+<section class="search-wrapper">
+    <input id="search" class="form-control" [ngClass]="{'selected':optionSelected}" [formControl]="control" [(ngModel)]="searchData" (search)="clearSearch()" type="search">
+    <ul class="auto-complete" *ngIf="!optionSelected">
+        <li *ngFor="let producto of filterProv | async"  (click)="selectOption(producto)" >
+            <section class="img-container">
+                <img [src]="getProductImage(producto.imgPath)" alt="">
+            </section>
+            {{producto.name}}
+        </li>
+    </ul>
+</section>
+
+

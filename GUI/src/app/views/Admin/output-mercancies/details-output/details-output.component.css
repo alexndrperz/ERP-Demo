@@ -1,0 +1,18 @@
+.merc-table tr td {
+    text-align: center;
+}
+
+
+.img-container {
+    width: 47px;
+    height: 38px;
+    border: 1px solid #0000006b;
+    border-radius: 4px;
+    margin: auto;   
+}
+
+.img-container img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}

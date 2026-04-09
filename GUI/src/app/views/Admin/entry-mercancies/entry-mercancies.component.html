@@ -1,0 +1,33 @@
+<header class="encabezado">
+    <h1>Entrada de mercancia</h1>
+    <button [routerLink]="['form-add-entry']" class="btn btn-outline-primary" title="Añadir Entrada">
+        <span class="material-symbols-outlined">
+            add_circle
+        </span>
+    </button>
+</header>
+<hr>    
+<table class="table table-striped">
+    <thead>
+        <th>No. Transaccion</th>
+        <th>Fecha</th>
+        <th>Total Pagado</th>
+        <th>Empresa Proveedora</th>
+        <th>RNC</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entry of entries">
+            <td>{{entry.id}}</td>
+            <td>{{entry.created_At | date:"dd/MM/yyyy"}}</td>
+            <td>${{entry.total}}</td>
+            <td>{{entry.provider.name}}</td>
+            <td>{{entry.provider.rnc}}</td>
+            <td>
+                <button class="btn btn-outline-primary table-btn" title="Ver info de factura" [routerLink]="['invoice',entry.id]" >
+                    <span class="material-symbols-outlined"> info</span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

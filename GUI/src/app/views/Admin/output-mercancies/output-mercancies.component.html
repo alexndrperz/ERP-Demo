@@ -1,0 +1,31 @@
+<header class="encabezado">
+    <h1>Salida de mercancia</h1>
+    <button [routerLink]="['form-add-out']" class="btn btn-outline-primary" title="Añadir Entrada">
+        <span class="material-symbols-outlined">
+            add_circle
+        </span>
+    </button>
+</header>
+<hr>    
+<table class="table table-striped">
+    <thead>
+        <th>No. Transaccion</th>
+        <th>Fecha</th>
+        <th>Total Pagado</th>
+        <th>Con Comprobante</th     >
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let outEntry of outInvoices">
+            <td>{{outEntry.id}}</td>
+            <td>{{outEntry.created_At | date:"dd/MM/yyyy"}}</td>
+            <td>${{outEntry.total.toFixed(2)}}</td>
+            <td>{{outEntry.fiscalComp ? "Si" :"No"}}</td>    
+            <td>
+                <button class="btn btn-outline-primary table-btn" title="Ver info de factura" [routerLink]="['invoice',outEntry.id]" >
+                    <span class="material-symbols-outlined"> info</span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

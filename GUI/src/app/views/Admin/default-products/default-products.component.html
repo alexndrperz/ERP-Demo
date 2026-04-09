@@ -1,0 +1,71 @@
+<header>
+    <h1>
+            Productos por defecto
+    </h1>
+    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditCreateProducts">
+        <span class="material-symbols-outlined">
+            add_circle
+            </span>
+    </button>
+</header>
+<hr>
+
+<main>
+    <section class="products-section">
+        <div class="card" style="width: 22rem;" *ngFor="let product of productsData">
+            <div class="card-img">
+                <img [src]="getProductImage(product.imgPath)" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <div class="buttons">
+                  <h5 class="card-title"><b>{{product.name}}</b></h5>
+                  <ul>
+                    <li><b>Porcentaje de Ganancias:</b> {{product.percentage_sell}}%</li>
+                    <li><b>Ganancias en periodo:</b> ${{product.total_gains}}</li>
+                    <li><b>Cantidad disponible:</b> {{product.quantity_availables}}</li>
+                  </ul>
+              </div>  
+              <div class="card-buttons">
+                <button class="btn btn-outline-primary" title="Obtener Informacion" [routerLink]="[product.id,'details']">
+                    <span class="material-symbols-outlined">
+                        info
+                    </span>
+                </button>
+                <button class="btn btn-outline-danger"  title="Eliminar" (click)="deshabilitateProduct(product.id)">
+                    <span class="material-symbols-outlined" >
+                        delete
+                    </span>
+                </button>
+              </div>
+            </div>
+          </div>
+    </section>
+</main>
+
+
+
+
+<b-modal  [modalId]="'modalEditCreateProducts'" [modalTitle]="'Guardar Producto'" 
+            [modalWidth]="'685px'" [modalHeight]="'306px'">
+    <section class="contenido-modal">
+        <section class=" img-input-cont">
+            <img-input [formData]="formData"></img-input>
+        </section>
+        <section class="form-inputs ">
+            <div class="input-group mb-2">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" [(ngModel)]="formData.name" placeholder="">
+            </div>
+            <div class="input-group mb-2">
+                <label class="form-label" >Porcentaje de ganancias por venta</label>
+                <input type="number" class="form-control" [(ngModel)]="formData.price"  placeholder="">
+            </div>
+        </section>
+    </section>
+
+    <section class="botones-modal">
+        <button class="btn btn-outline-primary" data-bs-dismiss="modal" (click)="saveChanges()">
+            Guardar
+        </button>
+    </section>
+</b-modal>
